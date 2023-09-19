@@ -6,6 +6,7 @@ declare module "react-native-maps-line-arrow" {
     arrow?: (color: string, size: number) => React.ReactNode;
     addOnlyLastArrow?: boolean;
     arrowSize?: number;
+    samplingRate?: number;
   }
 
   export default class ArrowedPolyline extends React.Component<
