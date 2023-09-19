@@ -32,7 +32,7 @@ const ArrowedPolyline = ({arrow = null, addOnlyLastArrow = false,  samplingRate=
         const Component = typeof arrow === 'function' ? arrow : DefaultArrow;
         const color = strokeColors[index % strokeColors.length] || strokeColor;
         return (
-          <Marker {...markerProps} tappable={false} anchor={{ y: -0.01 }} centerOffset={{y: -0.01}}>
+          <Marker {...markerProps} tappable={false} anchor={{ y: -0.01 }} tracksViewChanges={false} centerOffset={{y: -0.01}}>
             <Component color={color} size={arrowSize} />
           </Marker>
         );
