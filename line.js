@@ -4,7 +4,7 @@ import DefaultArrow from "./default";
 import calculateRotation from './calc';
 import headingContext from './context';
 
-const ArrowedPolyline = ({arrow = null, addOnlyLastArrow = false,  samplingRate=15, arrowSize = 8, ...polylineProps}) => {
+const ArrowedPolyline = ({arrow = null, addOnlyLastArrow = false,  samplingRate=15, arrowSize=8, arrowColor=null, ...polylineProps}) => {
   const {
     coordinates = [],
     geodesic = false,
@@ -30,7 +30,7 @@ const ArrowedPolyline = ({arrow = null, addOnlyLastArrow = false,  samplingRate=
       <Polyline coordinates={coordinates} {...polylineProps}/>
       {markerData.map((markerProps, index) => {
         const Component = typeof arrow === 'function' ? arrow : DefaultArrow;
-        const color = strokeColors[index % strokeColors.length] || strokeColor;
+        const color = arrowColor || strokeColors[index % strokeColors.length] || strokeColor;
         return (
           <Marker {...markerProps} tappable={false} anchor={{ y: -0.01 }} tracksViewChanges={false} centerOffset={{y: -0.01}}>
             <Component color={color} size={arrowSize} />
