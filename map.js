@@ -3,10 +3,10 @@ import MapView from 'react-native-maps';
 import { HeadingProvider } from 'react-native-maps-line-arrow/context';
 
 const useHeading = (ref) => {
-  const [heading, setHeading] = useState(0);
+  const [heading, setHeading] = useState({heading:0, zoom:0});
   const handleSetHeading = () => {
     if (ref.current){
-      ref.current.getCamera().then(camera => setHeading(camera.heading))
+      ref.current.getCamera().then(camera => {setHeading(camera)})
     }
   }
   return {ref, heading, handleSetHeading}
