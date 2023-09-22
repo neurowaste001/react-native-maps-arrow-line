@@ -6,7 +6,6 @@ declare module "react-native-maps-line-arrow" {
     arrow?: (color: string, size: number) => React.ReactNode;
     addOnlyLastArrow?: boolean;
     arrowSize?: number;
-    samplingRate?: number;
     arrowColor?: string;
   }
 
